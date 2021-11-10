@@ -25,7 +25,7 @@
 let n = 5;//numero de asteriscos querido
 let symbol = '*'; //criou uma string que tem um *
 let inputLine = '';//outra string que tem espaço dentro
-let inputPosition = n;// criou uma outra variável para receber o valor do 'n'. Será que não poderia usar só o n?
+let inputPosition = n;// criou uma outra variável para receber o valor do 'n'. Será que não poderia usar só o n? (R: acho que até dá mas pode bugar e dessconfigurar o valor inicial, já que esse valor vai ser reduzido no fim do segundo loop)
 
 for (let lineIndex = 0; lineIndex < n; lineIndex += 1) {//entra num loop que para em 'n-1'
   for (let columnIndex = 0; columnIndex <= n; columnIndex += 1) {//um segundo loop interno, aparentemente para acrescentar dados na mesma linha (usei um esquema parecido antes, mas acho que não tava bom pq tentei usar array)
@@ -39,8 +39,25 @@ for (let lineIndex = 0; lineIndex < n; lineIndex += 1) {//entra num loop que par
   inputLine = '';//reinicia a string que soma espaços, como sendo só um espaço novamente
   inputPosition -= 1;//reposicionou a string que recebia o n anteriormente para sendo n-1, ou seja, vai decair a quantidade de espaços já que quando chegar no if, a comparação vai ser menor.
 }; //sai e entra novamente no primeiro loop, enquanto index de linha for menor que o n
+//vou tentar novamente com array em outro momento, mas acho que ele imprimiria ["","","",'*'] ainda.
+
+//exercicio 4
 
 
+n = 7;
+symbol = '*';
+inputLine = '';
+let centerPosition = (n+1)/2;
 
-
-
+for (let distance = 0; distance <centerPosition; distance += 1) {
+    for (let columnIndex = 1; columnIndex <= n; columnIndex += 1) {
+    if (Math.abs(columnIndex - centerPosition)>distance) {//usei o módulo para absoluto pego do site *https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
+      inputLine = inputLine + ' ';
+    } else {
+      inputLine = inputLine + symbol;
+    }
+    }
+    console.log(inputLine);
+    inputLine ="";
+  }
+  
