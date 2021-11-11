@@ -51,4 +51,25 @@ if (personagem1.recorrente==="Sim" && personagem2.recorrente==="Sim"){
     console.log("Somente ", personagem2, "é recorrente");
 } else {
     console.log("Nenhum é recorrente");
-}
+};
+
+//exercicios a partir do 6
+let leitor = {
+    nome: 'Julia',
+    sobrenome: 'Pessoa',
+    idade: 21,
+    livrosFavoritos: [
+      {
+        titulo: 'O Pior Dia de Todos',
+        autor: 'Daniela Kopsch',
+        editora: 'Tordesilhas',
+      },
+      {
+        titulo: 'Harry Potter e o Prisioneiro de Azkaban',
+        autor: 'JK Rowling',
+        editor: 'Rocco',
+      }
+    ],
+  };
+//console.log ("O livro favorito de ", leitor.nome, ' ', leitor.sobrenome," se chama ", leitor.livrosFavoritos[0].titulo);
+console.log(leitor.nome," tem " ,leitor.livrosFavoritos.length, " livros favoritos.");
