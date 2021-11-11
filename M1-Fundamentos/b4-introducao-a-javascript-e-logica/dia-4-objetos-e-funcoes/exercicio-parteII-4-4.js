@@ -23,4 +23,21 @@ function arrayMaiorValor(numeros){
     return maiorIndice;
 };
 
-console.log (arrayMaiorValor([2, 3, 6, 7, 10, 1]));
+//console.log (arrayMaiorValor([2, 3, 6, 7, 10, 1]));
+
+//exercicio 3
+
+function arrayMenorValor(numeros){
+    let menorIndice=0;
+    let menorValor=numeros[0];
+
+    for (let index in numeros){
+        if (numeros[index]<menorValor){
+           menorValor = numeros[index];
+           menorIndice = index;
+        };
+    };
+    return menorIndice;
+};
+
+console.log (arrayMenorValor ([2, 4, 6, 7, 10, 0, -3]));
