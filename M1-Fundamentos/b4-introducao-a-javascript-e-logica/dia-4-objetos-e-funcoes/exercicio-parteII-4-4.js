@@ -16,7 +16,7 @@ function arrayMaiorValor(numeros){
 
     for (let index in numeros){
         if (numeros[index]>maiorValor){
-           maiorValor = numeros[index];
+           maiorValor = numeros[index]; //achei que ia ter que retornar o maior valor tbm kkkkk depois que v que não precisava, mas resolvi deixar
            maiorIndice = index;
         };
     };
@@ -41,3 +41,36 @@ function arrayMenorValor(numeros){
 };
 
 console.log (arrayMenorValor ([2, 4, 6, 7, 10, 0, -3]));
+
+function arrayNome (nomes){
+    let maisCaractere = 0;
+    for (let indice in nomes){
+        if (nomes[indice].length > nomes[maisCaractere].length){
+            maisCaractere = indice;
+        };
+    };
+    return nomes[maisCaractere];
+};
+
+console.log(arrayNome(['José', 'Lucas', 'Nádia', 'Fernanda', 'Cairo', 'Joana']));
+
+//exercicio 5
+
+function arrayMaisRepete(numeros){
+    let maisRepete=0;
+    let somaRepeticao=0;
+    for (let index in numeros){
+        for (let columnIndex =0; columnIndex<numeros.length;columnIndex+=1){
+            if (numeros[columnIndex]== numeros[index] && index!== columnIndex){
+                somaRepeticao +=1;
+            };
+        };
+        if (somaRepeticao>maisRepete) {
+            maisRepete = numeros[index];
+        };
+        somaRepeticao=0;
+    };
+    return maisRepete;
+};
+
+console.log (arrayMaisRepete([2, 3, 2, 5, 8, 2, 3]));
