@@ -74,3 +74,15 @@ function arrayMaisRepete(numeros){
 };
 
 console.log (arrayMaisRepete([2, 3, 2, 5, 8, 2, 3]));
+
+//exercicio 6
+
+function somaFatorial(inteiro) {
+    let soma=0;
+    for (let cont =1; cont<=inteiro; cont+=1){
+        soma+=cont;
+    };
+    return soma;
+};
+
+console.log (somaFatorial(5));
