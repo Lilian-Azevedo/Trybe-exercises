@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.1</title>
+    
+    <style>
+      main, section {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin: 0 auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <header> 
+      <h1 class="title">Exercício 5.1 - JavaEscripito </h1>
+    </header>    
+    <main class="main-content">
+      <section class="center-content">
+        <p>Texto padrão do nosso site</p>
+        <p>-----</p>
+        <p>Trybe</p>
+      </section>
+    </main>
+    <script>
+       //exerc. 1
+       function alteraParag() {
+           let mudaParag = document.getElementsByTagName("p")[1];
+           mudaParag.innerText = "Comprar uma Hilux toda equipada para dar cavalinho de pau";
+       }
+       alteraParag();
+
+       //exerc. 2
+       document.getElementsByClassName("main-content")[0].style.backgroundColor = "rgb(76,164,109";
+
+       //exerc. 3
+       function quadradoVermelhoBranco (){
+           let altera=document.getElementsByClassName("center-content")[0];
+           altera.style.backgroundColor = "white";
+       }
+       quadradoVermelhoBranco();
+       
+       //exer. 4 
+       function mudaNomeH1(){
+           let nomeH1 =document.getElementsByClassName("title")[0];
+           nomeH1.innerText = "Exercício 5.1 - JavaScript";
+       }
+       mudaNomeH1();
+
+       //exerc.5
+       function mudaParaMaiusculo () {
+           let textoParaMaiusculo = document.getElementsByTagName("p")[0];
+           textoParaMaiusculo.innerHTML = textoParaMaiusculo.innerHTML.toUpperCase();
+       }
+       mudaParaMaiusculo();
+
+       //exerc.6 
+       function mostraNoConsole () {
+           let exibicao = document.getElementsByTagName("p");
+           for (let i=0; i<exibicao.length; i+=1) {
+               console.log (exibicao[i].innerHTML);
+           }
+           mostraNoConsole();
+       }
+    </script>
+  </body>
+</html>
