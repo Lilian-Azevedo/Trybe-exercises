@@ -3,3 +3,7 @@ const paragraph = document.getElementById("paragraph");
 document.getElementById("page-title").innerText = "HARRY POTTER";
 document.getElementById("subtitle").innerText = "Qual o melhor livro da franquia?";
 document.getElementById("second-paragraph").innerText = "Todo mundo sabe que é Cálice de fogo e quem discordar, me processa";
+const paragClass = document.getElementsByClassName("paragraph-class");
+      paragClass[0].style.color = "blue";
+const title4 = document.getElementsByTagName("h4");
+    title4[1].style.color = "violet";
