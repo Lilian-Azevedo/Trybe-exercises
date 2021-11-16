@@ -85,4 +85,6 @@ function somaFatorial(inteiro) {
     return soma;
 };
 
+
+
 console.log (somaFatorial(5));
