@@ -32,3 +32,7 @@ primeiroFilhoDoFilho.appendChild(filhoDoPrimeiroFilhoDoFilho);
 
 let terceiroFilho = filhoDoPrimeiroFilhoDoFilho.parentElement.parentElement.nextElementSibling;
 
+//parte III
+elementParentWUR.removeChild(primeiroFilho);
+elementParentWUR.removeChild(terceiroFilho);
+elementParentWUR.removeChild(quartoFilho);
