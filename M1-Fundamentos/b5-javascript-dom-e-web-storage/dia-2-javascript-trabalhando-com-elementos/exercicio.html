@@ -84,7 +84,8 @@
       let imagem = document.createElement('img');
       imagem.src = 'https://picsum.photos/200';
       section2.appendChild(imagem);
-
+      
+      //exerc. 8
       let listNumber = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
       let listaNaoOrdenada = document.createElement('ul');
       section3.appendChild(listaNaoOrdenada);
@@ -100,6 +101,24 @@
           elementH3.innerText = 'Vamo que vamo!';
           main.appendChild(elementH3);
       }
+
+      //parte 2
+      title.className = 'title';
+
+      elementH3 = document.getElementsByTagName('h3');      
+      for (let i = 0; i < 3; i += 1) {
+          elementH3[i].className = 'description';
+      }
+
+      main.removeChild(section2);
+
+      section3.style.marginRight = 'auto';
+
+      section1.parentNode.style.backgroundColor = 'green';
+
+      listaNaoOrdenada.lastChild.remove();
+      listaNaoOrdenada.lastChild.remove();
+
     </script>
   </body>
 </html>
