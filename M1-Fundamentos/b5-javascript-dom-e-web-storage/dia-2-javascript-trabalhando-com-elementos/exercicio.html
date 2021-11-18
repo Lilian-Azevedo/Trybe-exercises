@@ -80,6 +80,26 @@
       let section3 = document.createElement('section');
       section3.className = 'right-content';
       main.appendChild(section3);
+
+      let imagem = document.createElement('img');
+      imagem.src = 'https://picsum.photos/200';
+      section2.appendChild(imagem);
+
+      let listNumber = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
+      let listaNaoOrdenada = document.createElement('ul');
+      section3.appendChild(listaNaoOrdenada);
+      for (let item in listNumber) {
+          let elementNumber = document.createElement('li');
+          elementNumber.innerText = listNumber[item];
+          listaNaoOrdenada.appendChild(elementNumber);
+      }
+
+      //exer. 9
+      for (let i = 0; i < 3; i+=1) {
+          elementH3 = document.createElement('h3');
+          elementH3.innerText = 'Vamo que vamo!';
+          main.appendChild(elementH3);
+      }
     </script>
   </body>
 </html>
