@@ -1,17 +1,17 @@
 function createDaysOfTheWeek() {
-    const weekDays = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
-    const weekDaysList = document.querySelector('.week-days');
+  const weekDays = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
+  const weekDaysList = document.querySelector('.week-days');
   
-    for (let index = 0; index < weekDays.length; index += 1) {
-      const days = weekDays[index];
-      const dayListItem = document.createElement('li');
-      dayListItem.innerHTML = days;
+  for (let index = 0; index < weekDays.length; index += 1) {
+    const days = weekDays[index];
+    const dayListItem = document.createElement('li');
+    dayListItem.innerHTML = days;
   
-      weekDaysList.appendChild(dayListItem);
-    };
+    weekDaysList.appendChild(dayListItem);
   };
+};
   
-  createDaysOfTheWeek();
+createDaysOfTheWeek();
 
 
 function createNumberOfDay() {
@@ -45,7 +45,7 @@ function createNumberOfDay() {
     };
 };
 
-  createNumberOfDay();
+createNumberOfDay();
 
 function createBotaoFeriado(feriados) {
     let btFeriado = document.createElement('button');
@@ -56,7 +56,7 @@ function createBotaoFeriado(feriados) {
     buttonPai.appendChild(btFeriado);
 }
 
-  createBotaoFeriado('Feriados');
+createBotaoFeriado('Feriados');
 /* 
 function clickButtHoliday() {
     let botaoFeriado = document.getElementById('btn-holiday');
@@ -77,6 +77,8 @@ function clickButtHoliday() {
 }
   clickButtHoliday(); */
 
+  //nao sei pq meu não rodou, já que está identico ao do gabarito. Copiei o do gabarito por enquanto para conferir de novo e ver onde tá o erro.
+
   function displayHolidays() {
     let getHolidayButton = document.getElementById('btn-holiday');
     let getHolidays = document.querySelectorAll('.holiday')
@@ -95,3 +97,32 @@ function clickButtHoliday() {
   };
   
   displayHolidays();
+
+//exerc.4
+function createBotaoFriday(friday){
+  let btFriday = document.createElement('button');
+  btFriday.id = 'btn-friday';
+  let buttonPai = document.querySelector('.buttons-container');
+    
+  btFriday.innerHTML = friday;
+  buttonPai.appendChild(btFriday);
+}
+createBotaoFriday('Sexta-Feira');
+
+function displayFriday(fridayArray) {
+  let fridayButton = document.querySelector('#btn-friday');
+  let getFridayDays= document.getElementsByClassName('friday');
+  let sextouText = 'SEXTOOOOOUUU';
+
+  fridayButton.addEventListener('click', function() {
+    for (let index = 0; index < getFridayDays.length; index += 1) {
+      if (getFridayDays[index].innerHTML !== sextouText) {
+        getFridayDays[index].innerHTML = sextouText;
+      } else {
+        getFridayDays[index].innerHTML = fridayArray[index];
+      }
+    }
+  })
+};
+let fridayDays = [3, 10, 17, 24, 31];
+displayFriday(fridayDays);
