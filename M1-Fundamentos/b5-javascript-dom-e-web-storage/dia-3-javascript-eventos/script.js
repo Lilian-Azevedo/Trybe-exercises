@@ -126,3 +126,21 @@ function displayFriday(fridayArray) {
 };
 let fridayDays = [3, 10, 17, 24, 31];
 displayFriday(fridayDays);
+
+//exerc. 6
+//zoom passando por cima do numero, ele aumenta de tamanho e quando passa de novo, diminui
+function createZoomOn() {
+  //vou precisar de mouseOver e out, aumentar ou diminuir fonte no objeto que tá sedno passado, que é os dias
+  let listDays = document.getElementById('days');
+  listDays.addEventListener('mouseover', function(e){
+    e.target.style.fontSize = '28px';
+  })
+}
+function createZoomOut() {
+  let listDays = document.getElementById('days');
+  listDays.addEventListener('mouseout', function(e) {
+    e.target.style.fontSize = '20px';
+  })
+}
+createZoomOn();
+createZoomOut();
