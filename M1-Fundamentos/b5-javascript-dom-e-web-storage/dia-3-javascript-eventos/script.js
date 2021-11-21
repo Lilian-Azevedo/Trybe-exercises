@@ -182,4 +182,22 @@ function createClassTaskSelected() {
   })
 }
 createClassTaskSelected();
-//
+//exerc 10
+//se a div de cor estiver selecionada, e clicar num numero, ele muda de cor para a da bola. 
+//Tentei e não funcionava, alterei de querySelector para className no divTask e funcionou, não entendi, pergunar ao Baêta depois. Também não funciona se co bColor for do Task selected, pq?
+//Estava com um nome gigante na cor e usei a recomendação do gabarito de criar var.
+function addColorTaskDay() {
+  let task = document.querySelector('.task'); 
+  let listDays = document.querySelector('#days');
+  let divTaskSelected = document.getElementsByClassName('task selected');
+  let taskColor = task.style.backgroundColor;
+
+  listDays.addEventListener('click', function(e) {
+    if (divTaskSelected.length !== 0 && e.target.style.color !== taskColor) {
+      e.target.style.color = taskColor;
+    } else if (e.target.style.color === taskColor && divTaskSelected.length !==  0) {
+      e.target.style.color = 'rgb(119,119,119)';
+    }
+  })
+}
+addColorTaskDay();
