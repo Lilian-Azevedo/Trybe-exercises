@@ -144,3 +144,14 @@ function createZoomOut() {
 }
 createZoomOn();
 createZoomOut();
+
+//exerc.7
+//o param da função vai ser filho do my-tasks(c), o create vai ser com span
+function createPersonTask(task) {
+  let divPaiTasks = document.querySelector('.my-tasks');
+  let personTask = document.createElement('span');
+  personTask.innerHTML = task;
+  divPaiTasks.appendChild(personTask);
+}
+createPersonTask('Estudar Coreano');
+//exerc. 8  
