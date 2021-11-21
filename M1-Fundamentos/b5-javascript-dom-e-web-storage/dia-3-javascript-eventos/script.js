@@ -155,3 +155,13 @@ function createPersonTask(task) {
 }
 createPersonTask('Estudar Coreano');
 //exerc. 8  
+function addColorTask(cor) {
+  let divPaiTasks = document.querySelector('.my-tasks');
+  let backgroundColorTask = document.createElement('div');
+
+  backgroundColorTask.className = 'task';
+  backgroundColorTask.style.backgroundColor = cor;
+
+  divPaiTasks.appendChild(backgroundColorTask);
+}
+addColorTask('yellow');
