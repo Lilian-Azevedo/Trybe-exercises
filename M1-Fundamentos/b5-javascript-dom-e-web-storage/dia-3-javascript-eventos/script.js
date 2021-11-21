@@ -165,3 +165,21 @@ function addColorTask(cor) {
   divPaiTasks.appendChild(backgroundColorTask);
 }
 addColorTask('yellow');
+
+//exerc. 9
+//criar um evento de click na div cor, quando selecionar ,a classe da div vai ser task selected e quando clicar de novo ele vira task
+function createClassTaskSelected() {
+  let divColor = document.querySelector('.task');
+  let countFalse;
+  divColor.addEventListener('click', function(e) {
+    if (countFalse === undefined) {
+      e.target.className = 'task selected';
+      countFalse = 1;
+    } else {
+      e.target.className = 'task';
+      countFalse = undefined;
+    } 
+  })
+}
+createClassTaskSelected();
+//
