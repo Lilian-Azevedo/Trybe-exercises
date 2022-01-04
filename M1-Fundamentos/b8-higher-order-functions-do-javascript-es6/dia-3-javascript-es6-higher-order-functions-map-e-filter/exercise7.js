@@ -65,11 +65,11 @@ const expectedResult = 'O Senhor dos Anéis';
 
 function authorWith3DotsOnName() {
   let item;
-  const findAuthor = books.find((book) => {
+  const findAuthor = books.filter((book) => {
     item = book.author.name;
     item = item.split(' ');
     if (item.length > 3) return book;
   });
-  return findAuthor.name;
+  return findAuthor[1].name;
 }
 console.log(authorWith3DotsOnName());
