@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import playButton from '../images/play.jpg';
+import playButton from '../images/play.png';
 import pauseButton from '../images/pause.png';
+import cancelButton from '../images/stop.png';
+import '../styles/buttons.css';
+import '../styles/counter.css';
 
 
 export default class Counter extends Component {
@@ -81,17 +84,18 @@ export default class Counter extends Component {
   render() {
     const {min, seg, showPlay,showCancel,showRetake,showStop} = this.state;
     return (
-      <div>
-        <h1>Counter</h1>
-        <h3>{min === 0 || min < 10? '0'+ min : min}:{seg === 0 || seg < 10? '0'+ seg : seg }</h3>
-        <div>
+      <div className='main'>
+        <div className='timer'>
+            <h3>{min === 0 || min < 10? '0'+ min : min}:{seg === 0 || seg < 10? '0'+ seg : seg }</h3>
+        </div>
+        <div className='buttons-update'>
             <button type='button' onClick={this.updateTimer} name='increase'>Aumentar</button>
             <button type='button' onClick={this.updateTimer} name='decrease' disabled={ min === 0}>Diminuir</button>
         </div>
-        <div>
-            {showPlay && <button type='button' onClick={this.startTimer} disabled={ min === 0}><img src={playButton}/></button>}
-            {showStop && <button type='button' onClick={this.stopTimer} ><img src={pauseButton}/></button>}
-            {showRetake && <button type='button' onClick={this.retakeTimer} ><img src={playButton}/></button>}
+        <div className='container-buttons-functions'>
+            {showPlay && (<button type='button' onClick={this.startTimer} disabled={ min === 0}><img src={playButton}/></button>)}
+            {showStop && (<button type='button' onClick={this.stopTimer} ><img src={pauseButton}/></button>)}
+            {showRetake && (<button type='button' onClick={this.retakeTimer} ><img src={playButton}/></button>)}
             {showCancel &&  <button type='button' onClick={this.cancelTimer} ><img src={cancelButton}/></button>}
         </div>
       </div>
