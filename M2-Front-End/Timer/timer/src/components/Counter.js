@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import playButton from '../images/play.png';
-import pauseButton from '../images/pause.png';
-import cancelButton from '../images/stop.png';
 import '../styles/buttons.css';
 import '../styles/counter.css';
+import '../styles/hourglass.css';
 
 
 export default class Counter extends Component {
@@ -84,21 +82,48 @@ export default class Counter extends Component {
   render() {
     const {min, seg, showPlay,showCancel,showRetake,showStop} = this.state;
     return (
-      <div className='main'>
-        <div className='timer'>
-            <h3>{min === 0 || min < 10? '0'+ min : min}:{seg === 0 || seg < 10? '0'+ seg : seg }</h3>
+        <div className='page'>
+            <div className='main'>
+                <div className='timer'>
+                    <h3>{min === 0 || min < 10? '0'+ min : min}:{seg === 0 || seg < 10? '0'+ seg : seg }</h3>
+                </div>
+                <div className='buttons-update'>
+                    <button type='button' onClick={this.updateTimer} name='increase'>Aumentar</button>
+                    <button type='button' onClick={this.updateTimer} name='decrease' disabled={ min === 0}>Diminuir</button>
+                </div>
+                <div className='container-buttons-functions'>
+                    {showPlay && (
+                    <button type='button' onClick={this.startTimer} disabled={ min === 0}>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                        </svg>
+                    </button>)}
+                    {showStop && (
+                    <button type='button' onClick={this.stopTimer} >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                    </button>)}
+                    {showRetake && (
+                    <button type='button' onClick={this.retakeTimer} >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                        </svg>
+                    </button>)}
+                    {showCancel &&  (
+                    <button type='button' onClick={this.cancelTimer} >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8 7a1 1 0 00-1 1v4a1 1 0 001 1h4a1 1 0 001-1V8a1 1 0 00-1-1H8z" clipRule="evenodd" />
+                        </svg>
+                    </button>)}
+                </div>
+            </div>
+            <div className='container-hourglass'>
+                <div className="hourglass" />
+            </div>
         </div>
-        <div className='buttons-update'>
-            <button type='button' onClick={this.updateTimer} name='increase'>Aumentar</button>
-            <button type='button' onClick={this.updateTimer} name='decrease' disabled={ min === 0}>Diminuir</button>
-        </div>
-        <div className='container-buttons-functions'>
-            {showPlay && (<button type='button' onClick={this.startTimer} disabled={ min === 0}><img src={playButton}/></button>)}
-            {showStop && (<button type='button' onClick={this.stopTimer} ><img src={pauseButton}/></button>)}
-            {showRetake && (<button type='button' onClick={this.retakeTimer} ><img src={playButton}/></button>)}
-            {showCancel &&  <button type='button' onClick={this.cancelTimer} ><img src={cancelButton}/></button>}
-        </div>
-      </div>
     )
   }
 }
+
+// Fontes: https://www.youtube.com/watch?v=p78d-ppiPwQ; 
