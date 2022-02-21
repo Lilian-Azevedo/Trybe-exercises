@@ -1,7 +1,39 @@
 button {
     background-color: transparent;
-    width: 100px;
+    width: 80px;
     color: rgba(255, 255, 255, 0.8);
     border: 0;
     display: inline-block;
+}
+
+span {
+    margin-top: 20px;
+    margin-bottom: -5px;
+    color: rgba(255, 255, 255, 0.788);
+    font-family: Fuzzy Bubbles, cursive;
+    align-self: flex-start;
+}
+
+.buttons-update {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.buttons-update button {
+    background-color: rgb(65, 65, 99);
+    color: rgb(255, 247, 247);
+    width: 100px;
+    box-shadow: 0 0.5em 1em black;
+    margin: 6px;
+    font-size: medium;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 40px;    
+}
+
+.container-min {
+    display: flex;
+    flex-direction: column;
 }

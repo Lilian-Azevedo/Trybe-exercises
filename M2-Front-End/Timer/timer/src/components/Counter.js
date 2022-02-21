@@ -12,13 +12,20 @@ export default class Counter extends Component {
    showStop: false,
    showCancel: false,
    showRetake:false,
+   showUpdate: true,
    stoped: false, retake: false, cancel: false,
   }
 
-  updateTimer = ({target: { name }}) => {
-    this.setState((previous)=> ({
-        min: name === 'increase'? previous.min + 1 : previous.min - 1,
-    }))
+  updateTimer = ({target: { name, id }}) => {
+    if(name === 'min') {
+        this.setState((previous)=> ({
+            min: id === 'min-increase'? previous.min + 1 : previous.min - 1,
+        }))
+    } else {
+        this.setState((previous)=> ({
+            seg: id === 'seg-increase'? previous.seg + 5 : previous.seg - 5,
+        }))
+    }
   }
 
   stopTimer = () => {
@@ -43,12 +50,14 @@ export default class Counter extends Component {
         showPlay: true,
         showStop: false,
         showCancel: false,
-        showRetake: false });
+        showRetake: false,
+        showUpdate: true, });
   }
 
   startTimer = () => {
     this.setState({ 
         showPlay: false,
+        showUpdate: false,
         showStop: true,
         showCancel:true });
     if(this.state.seg === 0) {
@@ -77,23 +86,41 @@ export default class Counter extends Component {
     if(prevState.seg === 1 && prevState.min === 0 || prevState.stoped || prevState.cancel) {
         clearInterval(this.timer);
     }
+    if(prevState.seg === 1) {
+        this.setState({showUpdate:true})
+    }
   }
 
   render() {
-    const {min, seg, showPlay,showCancel,showRetake,showStop} = this.state;
+    const {min, seg, showPlay,showCancel,showRetake,showStop, showUpdate} = this.state;
     return (
         <div className='page'>
             <div className='main'>
                 <div className='timer'>
-                    <h3>{min === 0 || min < 10? '0'+ min : min}:{seg === 0 || seg < 10? '0'+ seg : seg }</h3>
+                    <h3>{min < 10? '0'+ min : min}</h3>
+                    <span>:</span>
+                    <h3>{seg < 10? '0'+ seg : seg }</h3>
                 </div>
-                <div className='buttons-update'>
-                    <button type='button' onClick={this.updateTimer} name='increase'>Aumentar</button>
-                    <button type='button' onClick={this.updateTimer} name='decrease' disabled={ min === 0}>Diminuir</button>
-                </div>
+                { showUpdate && (
+                <>
+                    <div className='container-min'>
+                        <span>1min</span>
+                        <div className='buttons-update'>
+                            <button type='button' onClick={this.updateTimer} id='min-increase' name='min'>Aumentar</button>
+                            <button type='button' onClick={this.updateTimer} id='min-decrease' name='min' disabled={ min === 0}>Diminuir</button>
+                        </div>
+                    </div>
+                    <div className='container-seg'>
+                        <span>5seg</span>
+                        <div className='buttons-update'>
+                            <button type='button' onClick={this.updateTimer} id='seg-increase' name='seg'>Aumentar</button>
+                            <button type='button' onClick={this.updateTimer} id='seg-decrease' name='seg' disabled={ seg === 0}>Diminuir</button>
+                        </div>
+                    </div>
+                </>)}
                 <div className='container-buttons-functions'>
                     {showPlay && (
-                    <button type='button' onClick={this.startTimer} disabled={ min === 0}>
+                    <button type='button' onClick={this.startTimer} disabled={ min === 0 && seg === 0  }>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
                         </svg>
@@ -118,9 +145,9 @@ export default class Counter extends Component {
                     </button>)}
                 </div>
             </div>
-            <div className='container-hourglass'>
+            {!showUpdate && (<div className='container-hourglass'>
                 <div className="hourglass" />
-            </div>
+            </div>)}
         </div>
     )
   }
