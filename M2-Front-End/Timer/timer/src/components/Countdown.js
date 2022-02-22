@@ -26,6 +26,7 @@ export default class Countdown extends Component {
   }
   
   startTimer = () => {
+    this.setState({ stoped: false });
     this.timer = setInterval(() => {
         this.setState(({seg, min}) => ({
             seg: (seg === 0)? 59: seg - 1 ,
