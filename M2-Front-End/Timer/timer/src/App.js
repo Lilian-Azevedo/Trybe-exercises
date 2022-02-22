@@ -1,11 +1,11 @@
 import './App.css';
-import Counter from './components/Counter';
+import Main from './components/Main';
 
 function App() {
   return (
-    <div className="Main">
-     <Counter />
-    </div>
+    <>
+     <Main />
+    </>
   );
 }
 
