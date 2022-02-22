@@ -3,6 +3,7 @@ import '../styles/buttons.css';
 import '../styles/counter.css';
 import '../styles/hourglass.css';
 import Countdown from './Countdown';
+import Finished from './Finished';
 import UpdateTimer from './UpdateTimer';
 
 export default class App extends Component {
@@ -10,6 +11,7 @@ export default class App extends Component {
     min: 0,
     seg: 0,
     start: false,
+    finished: false,
   }
 
   updateTimer = ({target: { name, id }}) => {
@@ -33,6 +35,13 @@ export default class App extends Component {
   cancelTimer = () => {
     this.setState({ 
       start: false,
+      finished: false,
+    });
+  }
+
+  finishedTime = () => {
+    this.setState({ 
+      finished: true,
     });
   }
 
@@ -42,8 +51,10 @@ export default class App extends Component {
         {!this.state.start && <UpdateTimer {...this.state}
           update={this.updateTimer}
           startTimer ={this.startTimer}/>}
-        {this.state.start && <Countdown {...this.state}
-          cancelTimer ={this.cancelTimer}/>}
+        {this.state.start && !this.state.finished && <Countdown {...this.state}
+          finishedTime={this.finishedTime}/>}
+        {this.state.finished && <Finished 
+          cancelTimer={this.cancelTimer}/>}
       </div>
     );
   }

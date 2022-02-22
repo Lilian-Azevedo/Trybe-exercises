@@ -1,0 +1,24 @@
+.finished {
+    background-color: rgba(255, 255, 255, 0.788);
+    border-radius: 10px;
+    box-shadow: 10px 5px 5px black;
+    border: 1px solid rgba(56, 55, 55, 0.192);
+    text-align: center;
+}
+
+.finished h1 {
+    font-size: 80px;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(5, 12, 44);
+    letter-spacing: 3px;
+}
+
+.finished button {
+    background-color: rgb(5, 12, 44);
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    font-size: 40px;
+    padding: auto;
+    width: 50vh;
+    height: 8vh;
+}
