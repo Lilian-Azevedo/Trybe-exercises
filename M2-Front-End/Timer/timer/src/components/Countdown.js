@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../styles/buttons.css';
 import '../styles/counter.css';
 import '../styles/hourglass.css';
+import song from './ringingBell.mp3';
 
 export default class Countdown extends Component {
   constructor(props) {
@@ -22,6 +23,7 @@ export default class Countdown extends Component {
     if(prevState.seg === 1 && prevState.min === 0) {
         clearInterval(this.timer);
         cancelTimer(); 
+        /* this.playAlert(); */
     }
   }
   
@@ -39,6 +41,11 @@ export default class Countdown extends Component {
     this.setState({ stoped: true });
     clearInterval(this.timer);
   }
+
+  playAlert = () => {
+    const audio = new Audio(song);
+    song.play();
+  };
 
   render() {
     const { cancelTimer } = this.props;

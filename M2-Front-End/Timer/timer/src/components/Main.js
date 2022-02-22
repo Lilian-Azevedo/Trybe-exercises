@@ -32,7 +32,7 @@ export default class App extends Component {
 
   cancelTimer = () => {
     this.setState({ 
-        start: false,
+      start: false,
     });
   }
 
